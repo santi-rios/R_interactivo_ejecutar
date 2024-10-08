@@ -1,0 +1,205 @@
+[
+  {
+    "objectID": "slides/lecture-01.html#overview",
+    "href": "slides/lecture-01.html#overview",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Overview",
+    "text": "Overview\nThe goal of this presentation is to showcase the power of WebAssembly (WASM) in data science education by allowing real-time code execution, visualization, and exercises directly within the slide deck.\nWe do this by exploring the concept of linear regression using both R and Python code snippets."
+  },
+  {
+    "objectID": "slides/lecture-01.html#introduction",
+    "href": "slides/lecture-01.html#introduction",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Introduction",
+    "text": "Introduction\nLinear regression is a fundamental statistical technique used to model the relationship between a dependent variable and one or more independent variables.\nThis presentation will cover:\n\nBasic Concepts\nImplementation in R and Python\nModel Evaluation\nAssumptions and Diagnostics"
+  },
+  {
+    "objectID": "slides/lecture-01.html#basic-concepts",
+    "href": "slides/lecture-01.html#basic-concepts",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Basic Concepts",
+    "text": "Basic Concepts\nLinear regression aims to find the best-fitting straight line through the data points.\nThe general form of a simple linear regression model is:\n\\[Y = \\beta_0 + \\beta_1X + \\epsilon\\]\nWhere:\n\n\\(Y\\) is the dependent variable\n\\(X\\) is the independent variable\n\\(\\beta_0\\) is the y-intercept\n\\(\\beta_1\\) is the slope\n\\(\\epsilon\\) is the error term"
+  },
+  {
+    "objectID": "slides/lecture-01.html#generating-data",
+    "href": "slides/lecture-01.html#generating-data",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Generating Data",
+    "text": "Generating Data\nLet’s look at how to implement linear regression in R and Python by first simulating some data"
+  },
+  {
+    "objectID": "slides/lecture-01.html#r",
+    "href": "slides/lecture-01.html#r",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "R",
+    "text": "R"
+  },
+  {
+    "objectID": "slides/lecture-01.html#guessing-the-coefficients",
+    "href": "slides/lecture-01.html#guessing-the-coefficients",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Guessing the Coefficients",
+    "text": "Guessing the Coefficients\nTry to fit a linear regression model by hand through manipulating coefficients below:\nThe linear regression with \\(\\beta_0 =\\)  and \\(\\beta_1 =\\)  is:\n\nimport {Tangle} from \"@mbostock/tangle\"\n\n// Setup Tangle reactive inputs\nviewof beta_0 = Inputs.input(0);\nviewof beta_1 = Inputs.input(1);\nbeta_0_Tgl = Inputs.bind(Tangle({min: -30, max: 300, minWidth: \"1em\", step: 1}), viewof beta_0);\nbeta_1_Tgl = Inputs.bind(Tangle({min: -5, max: 5, minWidth: \"1em\", step: 0.25}), viewof beta_1);\n\n// draw plot in R\nregression_plot(beta_0, beta_1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n:::"
+  },
+  {
+    "objectID": "slides/lecture-01.html#fit-linear-regression-model",
+    "href": "slides/lecture-01.html#fit-linear-regression-model",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Fit Linear Regression Model",
+    "text": "Fit Linear Regression Model\nNow that we have our data, let’s fit a linear regression model to it:"
+  },
+  {
+    "objectID": "slides/lecture-01.html#r-1",
+    "href": "slides/lecture-01.html#r-1",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "R",
+    "text": "R"
+  },
+  {
+    "objectID": "slides/lecture-01.html#visualize-the-results",
+    "href": "slides/lecture-01.html#visualize-the-results",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Visualize the Results",
+    "text": "Visualize the Results\nWe can visualize the data and the regression line to see how well the model fits the data using ggplot2 in R and Matplotlib in Python."
+  },
+  {
+    "objectID": "slides/lecture-01.html#r-2",
+    "href": "slides/lecture-01.html#r-2",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "R",
+    "text": "R"
+  },
+  {
+    "objectID": "slides/lecture-01.html#predicting-new-values",
+    "href": "slides/lecture-01.html#predicting-new-values",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Predicting New Values",
+    "text": "Predicting New Values\nWe can use our linear regression model to make predictions on new data:"
+  },
+  {
+    "objectID": "slides/lecture-01.html#r-3",
+    "href": "slides/lecture-01.html#r-3",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "R",
+    "text": "R"
+  },
+  {
+    "objectID": "slides/lecture-01.html#your-turn-predict-new-values",
+    "href": "slides/lecture-01.html#your-turn-predict-new-values",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Your Turn: Predict New Values!",
+    "text": "Your Turn: Predict New Values!\n\n  \n    −\n    +\n \n 01:30\n \nCreate a new data frame with x values 10, 30, and 60, then use the model to predict the corresponding y values."
+  },
+  {
+    "objectID": "slides/lecture-01.html#r-4",
+    "href": "slides/lecture-01.html#r-4",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "R",
+    "text": "R"
+  },
+  {
+    "objectID": "slides/lecture-01.html#model-evaluation",
+    "href": "slides/lecture-01.html#model-evaluation",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Model Evaluation",
+    "text": "Model Evaluation\nWe can evaluate the performance of our linear regression model using various metrics:"
+  },
+  {
+    "objectID": "slides/lecture-01.html#r-5",
+    "href": "slides/lecture-01.html#r-5",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "R",
+    "text": "R"
+  },
+  {
+    "objectID": "slides/lecture-01.html#assumptions",
+    "href": "slides/lecture-01.html#assumptions",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Assumptions",
+    "text": "Assumptions\nLinear regression relies on several assumptions:\n\nLinearity\nIndependence\nHomoscedasticity\nNormality of residuals"
+  },
+  {
+    "objectID": "slides/lecture-01.html#checking-assumptions-with-diagnostics-plots",
+    "href": "slides/lecture-01.html#checking-assumptions-with-diagnostics-plots",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Checking Assumptions with Diagnostics Plots",
+    "text": "Checking Assumptions with Diagnostics Plots\nLet’s look at some diagnostic plots:"
+  },
+  {
+    "objectID": "slides/lecture-01.html#r-6",
+    "href": "slides/lecture-01.html#r-6",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "R",
+    "text": "R"
+  },
+  {
+    "objectID": "slides/lecture-01.html#conclusion",
+    "href": "slides/lecture-01.html#conclusion",
+    "title": "Demo: Data Science Education with WebAssembly",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nLinear regression is a powerful tool for modeling relationships between variables.\nBoth R and Python offer robust implementations and diagnostic tools.\nAlways check assumptions and perform diagnostics to ensure the validity of your model.\nConsider more advanced techniques (e.g., multiple regression, polynomial regression) for complex relationships."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Next Generation of Data Science Education",
+    "section": "",
+    "text": "In this demonstration, we showcase cutting-edge technology that brings interactive coding directly into slide decks using WebAssembly (WASM) through the new official Quarto WebAssembly backend: quarto-live by George Stagg. This innovative approach revolutionizes how we present and teach data science concepts by allowing for real-time code execution, visualization, and exercises within the presentation itself.\nYou can view the demonstration of this technology in the following slide deck:\n    View slides in full screen\n       \n      \n    \n  \nFor more on the Quarto WebAssembly backend, see the official documentation."
+  },
+  {
+    "objectID": "index.html#welcome-to-the-future-of-data-science-education",
+    "href": "index.html#welcome-to-the-future-of-data-science-education",
+    "title": "The Next Generation of Data Science Education",
+    "section": "",
+    "text": "In this demonstration, we showcase cutting-edge technology that brings interactive coding directly into slide decks using WebAssembly (WASM) through the new official Quarto WebAssembly backend: quarto-live by George Stagg. This innovative approach revolutionizes how we present and teach data science concepts by allowing for real-time code execution, visualization, and exercises within the presentation itself.\nYou can view the demonstration of this technology in the following slide deck:\n    View slides in full screen\n       \n      \n    \n  \nFor more on the Quarto WebAssembly backend, see the official documentation."
+  },
+  {
+    "objectID": "index.html#whats-inside",
+    "href": "index.html#whats-inside",
+    "title": "The Next Generation of Data Science Education",
+    "section": "What’s Inside",
+    "text": "What’s Inside\nThis demonstration includes a Linear Regression overview that uses both R and Python code snippets to illustrate the concepts. You can interact with the code blocks, modify them, and see the results instantly. We’ve also included a built-in timer on the exercise page to provide a stoppage time for the exercise."
+  },
+  {
+    "objectID": "index.html#the-power-of-webassembly-in-presentations",
+    "href": "index.html#the-power-of-webassembly-in-presentations",
+    "title": "The Next Generation of Data Science Education",
+    "section": "The Power of WebAssembly in Presentations",
+    "text": "The Power of WebAssembly in Presentations\nWebAssembly is a binary instruction format for a stack-based virtual machine, designed as a portable target for high-level languages like C, C++, and Rust. By leveraging WebAssembly:\n\nWe can run R and Python code directly in the browser.\nPresentations become interactive, allowing audience members to modify and run code in real-time.\nComplex computations and visualizations can be performed client-side, reducing server load and improving responsiveness."
+  },
+  {
+    "objectID": "index.html#how-it-works",
+    "href": "index.html#how-it-works",
+    "title": "The Next Generation of Data Science Education",
+    "section": "How It Works",
+    "text": "How It Works\n\nR Integration: webR, an R distribution compiled to WebAssembly, is used by quarto-live to run R code in the browser.\nPython Integration: Pyodide, a Python distribution for the browser, is used by quarto-live to execute Python code.\nQuarto + RevealJS: The presentation is built using Quarto and RevealJS, providing a smooth, web-based slide experience.\nQuarto Extensions: Additional Quarto extensions like quarto-live, quarto-drop, and quarto-countdown enhance the interactivity and functionality of the presentation."
+  },
+  {
+    "objectID": "index.html#benefits-of-this-approach",
+    "href": "index.html#benefits-of-this-approach",
+    "title": "The Next Generation of Data Science Education",
+    "section": "Benefits of This Approach",
+    "text": "Benefits of This Approach\n\nEngagement: Audience members can experiment with code in real-time, fostering active learning.\nFlexibility: Presenters can easily modify examples on the fly to answer questions or explore different scenarios.\nAccessibility: No need for local installations; everything runs in the browser.\nReproducibility: Ensures everyone sees the same results, regardless of their local setup."
+  },
+  {
+    "objectID": "index.html#getting-started",
+    "href": "index.html#getting-started",
+    "title": "The Next Generation of Data Science Education",
+    "section": "Getting Started",
+    "text": "Getting Started\nTo explore this demo:\n\nNavigate through the links above to view each component.\nIn the slide decks and tutorials, look for interactive code blocks where you can modify and run code.\nExperiment with different inputs and see how the outputs change in real-time."
+  },
+  {
+    "objectID": "index.html#technical-requirements",
+    "href": "index.html#technical-requirements",
+    "title": "The Next Generation of Data Science Education",
+    "section": "Technical Requirements",
+    "text": "Technical Requirements\n\nFor Viewers and Presenters\n\nA modern web browser with WebAssembly support (most up-to-date browsers support this).\nFor the best experience, use a desktop or laptop computer rather than a mobile device.\n\n\n\nAuthoring\nTo create your own version of the demonstration, you need to install the following software:\n\nRStudio IDE, VS Code, Positron, or another text editor\n\nFor VS Code or Positron, please install the Quarto plugin.\n\nQuarto v1.4.0 or later\nQuarto Extensions\n\nquarto-live\nquarto-drop\nquarto-countdown\nquarto-embedio\n\n\nYou can install the Quarto Extensions by typing the following commands in your terminal:\nquarto add r-wasm/quarto-live\nquarto add r-wasm/quarto-drop\nquarto add gadenbuie/countdown/quarto\nquarto add coatless-quarto/embedio"
+  },
+  {
+    "objectID": "index.html#feedback-and-questions",
+    "href": "index.html#feedback-and-questions",
+    "title": "The Next Generation of Data Science Education",
+    "section": "Feedback and Questions",
+    "text": "Feedback and Questions\nQuestion or comments? Let me know either on the issue tracker or via socials.\nEnjoy exploring the future of interactive data science presentations!"
+  }
+]
