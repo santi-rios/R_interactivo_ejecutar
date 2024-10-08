@@ -5,7 +5,7 @@ project:
 website:
   title: "The Next Generation of Data Science Education"
   reader-mode: true
-  repo-url: https://github.com/coatless-tutorials/next-gen-data-science-education
+  repo-url: https://github.com/santi-rios/R_interactivo_ejecutar
   repo-actions: [edit, issue]
   navbar:
     background: light

@@ -64,7 +64,6 @@ Where:
 
 Let's look at how to implement linear regression in R and Python by first simulating some data
 
-::: {.panel-tabset group="language"}
 
 ## R
 
@@ -78,22 +77,6 @@ df <- data.frame(x = x, y = y)
 head(df)
 ```
 
-## Python
-
-```{pyodide}
-import numpy as np
-import pandas as pd
-
-# Create sample data
-np.random.seed(123)
-x = np.arange(1, 101)
-y = 2 * x + 1 + np.random.normal(0, 3, 100)
-data = pd.DataFrame({'x': x, 'y': y})
-
-data.head()
-```
-
-:::
 
 ---
 
@@ -145,7 +128,7 @@ regression_plot <- function(beta_0, beta_1) {
 
 Now that we have our data, let's fit a linear regression model to it:
 
-::: {.panel-tabset group="language"}
+
 
 ## R
 
@@ -157,28 +140,12 @@ model <- lm(y ~ x, data = df)
 summary(model)
 ```
 
-## Python
-
-```{pyodide}
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-
-# Fit linear regression model
-model = LinearRegression()
-model.fit(data[['x']], data['y'])
-
-# Print model coefficients
-print(f"Intercept: {model.intercept_:.2f}")
-print(f"Slope: {model.coef_[0]:.2f}")
-```
-
-:::
 
 ## Visualize the Results
 
 We can visualize the data and the regression line to see how well the model fits the data using ggplot2 in R and Matplotlib in Python.
 
-::: {.panel-tabset group="language"}
+
 
 ## R
 
@@ -194,20 +161,6 @@ ggplot(df, aes(x = x, y = y)) +
        x = "X", y = "Y")
 ```
 
-## Python
-
-```{pyodide}
-# Plot the data and regression line
-plt.figure(figsize=(10, 6))
-plt.scatter(data['x'], data['y'])
-plt.plot(data['x'], model.predict(data[['x']]), color='red')
-plt.title("Linear Regression in Python")
-plt.xlabel("X")
-plt.ylabel("Y")
-plt.show()
-```
-
-:::
 
 ---
 
@@ -215,7 +168,7 @@ plt.show()
 
 We can use our linear regression model to make predictions on new data:
 
-::: {.panel-tabset group="language"}
+
 
 ## R
 
@@ -227,15 +180,6 @@ predictions <- predict(model, newdata = new_data)
 predictions
 ```
 
-## Python
-
-```{pyodide}
-# Predict new values
-new_data = pd.DataFrame({'x': [101, 102, 103]})
-predictions = model.predict(new_data)
-```
-
-:::
 
 ---
 
@@ -245,7 +189,6 @@ predictions = model.predict(new_data)
 
 Create a new data frame with `x` values 10, 30, and 60, then use the model to predict the corresponding y values.
 
-::: {.panel-tabset group="language"}
 
 ## R 
 
@@ -278,49 +221,13 @@ if (isTRUE(all.equal(.result, predictions))) {
 }
 ```
 
-## Python 
-
-```{pyodide}
-#| exercise: ex_1_py
-# Create your new Pandas data frame here
-_______
-
-# Make predictions using the model
-_______
-
-# Print the predictions
-_______
-```
-
-```{pyodide}
-#| exercise: ex_1_py
-#| check: true
-
-# Create a new DataFrame with x values 10, 30, and 60
-new_data_solution = pd.DataFrame({'x': [10, 30, 60]})
-
-# Make predictions using the model
-predictions_solution = model.predict(new_data_solution)
-
-feedback = None
-if (result == predictions_solution):
-  feedback = { "correct": True, "message": "Nice work!" }
-else:
-  feedback = { "correct": False, "message": "That's incorrect, sorry." }
-
-feedback
-```
-
-:::
-
-
 ---
 
 ## Model Evaluation
 
 We can evaluate the performance of our linear regression model using various metrics:
 
-::: {.panel-tabset}
+
 
 ## R
 
@@ -335,26 +242,6 @@ sqrt(mean(residuals(model)^2))
 mean(abs(residuals(model)))
 ```
 
-## Python
-
-```{pyodide}
-from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
-
-# R-squared
-r2 = r2_score(data['y'], model.predict(data[['x']]))
-
-# Root Mean Squared Error (RMSE)
-rmse = np.sqrt(mean_squared_error(data['y'], model.predict(data[['x']])))
-
-# Mean Absolute Error (MAE)
-mae = mean_absolute_error(data['y'], model.predict(data[['x']]))
-
-print(f"R-squared: {r2:.4f}")
-print(f"RMSE: {rmse:.4f}")
-print(f"MAE: {mae:.4f}")
-```
-
-:::
 
 ---
 
@@ -373,7 +260,7 @@ Linear regression relies on several assumptions:
 
 Let's look at some diagnostic plots:
 
-::: {.panel-tabset}
+
 
 ## R
 
@@ -381,30 +268,6 @@ Let's look at some diagnostic plots:
 par(mfrow = c(2, 2))
 plot(model)
 ```
-
-## Python
-
-```{pyodide}
-import seaborn as sns
-
-# Residual plot
-plt.figure(figsize=(10, 6))
-sns.residplot(x=model.predict(data[['x']]), y=data['y'], lowess=True)
-plt.title("Residual Plot")
-plt.xlabel("Predicted Values")
-plt.ylabel("Residuals")
-plt.show()
-
-# Q-Q plot
-from scipy import stats
-
-fig, ax = plt.subplots(figsize=(10, 6))
-_, (__, ___, r) = stats.probplot(model.resid, plot=ax, fit=True)
-ax.set_title("Q-Q Plot")
-plt.show()
-```
-
-:::
 
 ---
 
